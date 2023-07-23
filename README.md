@@ -51,3 +51,6 @@ Tailwind: need `tailwind.config.js` and to add to settings.json
     ["tw.style\\(([^)]*)\\)", "'([^']*)'"]
 ]
 ```
+
+react-native-safe-area-context
+Make sure **to use the npx expo** to install and also use the hook in a separate component.
