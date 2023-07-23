@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import tw from "twrnc";
 
 import useFontsLoaded from "./hooks/useFontsLoaded";
 import init from "./init";
@@ -14,22 +15,14 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Text style={styles.withFont}>
-        Open up App.tsx to start working on your app!!
-      </Text>
+    <View style={tw`flex-1 bg-red-100`} onLayout={onLayoutRootView}>
+      <Text style={styles.withFont}>Hello, world!</Text>
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   withFont: {
     fontFamily: "Satoshi-Medium",
   },

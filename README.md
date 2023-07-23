@@ -37,3 +37,17 @@ eas build --profile development-simulator --platform ios --local
 
 yarn expo start --dev-client
 ```
+
+## Adding libraries
+
+Tailwind: need `tailwind.config.js` and to add to settings.json
+```json
+"tailwindCSS.classAttributes": [
+    // ...
+    "style"
+],
+"tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)",
+    ["tw.style\\(([^)]*)\\)", "'([^']*)'"]
+]
+```
