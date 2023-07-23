@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
@@ -8,18 +8,29 @@ import tw from "twrnc";
 
 import useFontsLoaded from "./hooks/useFontsLoaded";
 import init from "./init";
+import { cva } from "class-variance-authority";
 
 init();
 
+export function Button({ children }: { children: string }) {
+  return (
+    <Pressable>
+      <Text>{children}</Text>
+    </Pressable>
+  );
+}
 export function Home() {
   const onLayoutRootView = useFontsLoaded()[1];
   const insets = useSafeAreaInsets();
 
   return (
     <View
-      style={tw.style("flex-1 bg-zinc-100", { paddingTop: insets.top })}
+      style={tw.style("flex-1 bg-zinc-100 px-2", {
+        paddingTop: insets.top,
+      })}
       onLayout={onLayoutRootView}>
-      <Text style={styles.withFont}>Hello, world!</Text>
+      <Text style={styles.withFont}>Hello!</Text>
+      <Button>Press me please</Button>
       <StatusBar style="auto" />
     </View>
   );

@@ -41,7 +41,7 @@ yarn expo start --dev-client
 ## Adding libraries
 
 Tailwind: need `tailwind.config.js` and to add to settings.json
-```json
+```json5
 "tailwindCSS.classAttributes": [
     // ...
     "style"
@@ -52,5 +52,21 @@ Tailwind: need `tailwind.config.js` and to add to settings.json
 ]
 ```
 
-react-native-safe-area-context
-Make sure **to use the npx expo** to install and also use the hook in a separate component.
+`yarn expo install react-native-safe-area-context`
+Apparently you need to rebuild after installing some things
+Make sure **to use the yarn/npx expo** to install and also use the hook in a separate component.
+Avoided these errors:
+```
+requireNativeComponent: "RNCSafeAreaProvider" was not found in the UIManager
+
+No safe area insets value available. Make sure you are rendering `<SafeAreaProvider>` at the top of your app.
+```
+
+`yarn expo install class-variance-authority`
+```json5
+{
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
+}
+```
