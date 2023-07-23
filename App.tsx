@@ -10,12 +10,16 @@ import useFontsLoaded from "./hooks/useFontsLoaded";
 import init from "./init";
 import { cva } from "class-variance-authority";
 
+const buttonStyles = cva(["px-3", "py-1.5", "bg-sky-300", "rounded-lg"]);
+
 init();
 
 export function Button({ children }: { children: string }) {
   return (
-    <Pressable>
-      <Text>{children}</Text>
+    <Pressable
+      style={tw.style(buttonStyles())}
+      onPress={() => console.log("pressed")}>
+      <Text style={{ fontFamily: "Satoshi-Medium" }}>{children}</Text>
     </Pressable>
   );
 }
@@ -25,7 +29,7 @@ export function Home() {
 
   return (
     <View
-      style={tw.style("flex-1 bg-zinc-100 px-2", {
+      style={tw.style("flex-1 bg-zinc-100 px-2 gap-2", {
         paddingTop: insets.top,
       })}
       onLayout={onLayoutRootView}>
@@ -52,6 +56,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   withFont: {
-    fontFamily: "Satoshi-Medium",
+    fontFamily: "Satoshi-Black",
   },
 });
