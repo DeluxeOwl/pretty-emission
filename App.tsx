@@ -60,7 +60,7 @@ init();
 
 export function Button({ children }: { children: string }) {
   const [theme, setTheme] = useAtom(themeAtom);
-  const buttonStyles = getButtonStyles(themes[theme]);
+  const buttonStyles = useCallback(getButtonStyles(themes[theme]), [theme]);
 
   return (
     <Pressable
