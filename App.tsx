@@ -26,9 +26,7 @@ type Theme = {
   primaryColor: PrimaryColor;
   primaryColorPressed: PrimaryColorPressed;
 };
-type Themes = Record<string, Theme>;
-
-const t: Themes = {
+const themes = {
   sky: {
     primaryColor: "bg-sky-500",
     primaryColorPressed: "bg-sky-500/80",
@@ -37,29 +35,32 @@ const t: Themes = {
     primaryColor: "bg-amber-600",
     primaryColorPressed: "bg-amber-500/80",
   },
+} as const;
+
+type themeNames = keyof typeof themes;
+
+const getButtonStyles = (t: Theme) => {
+  return cva(["px-3", "py-1.5", "rounded-lg", "border"], {
+    variants: {
+      intent: {
+        primary: ["border-sky-200", t.primaryColor],
+      },
+      intentAction: {
+        primary: [t.primaryColorPressed],
+      },
+    },
+  });
 };
 
-const themeAtom = atom<Theme>(t.sky);
+type VarProps = ReturnType<typeof getButtonStyles>;
+
+const themeAtom = atom<themeNames>("sky");
 
 init();
 
 export function Button({ children }: { children: string }) {
   const [theme, setTheme] = useAtom(themeAtom);
-
-  // not good, should also get its type
-  const buttonStyles = useCallback(
-    cva(["px-3", "py-1.5", "rounded-lg", "border"], {
-      variants: {
-        intent: {
-          primary: ["border-sky-200", theme.primaryColor],
-        },
-        intentAction: {
-          primary: [theme.primaryColorPressed],
-        },
-      },
-    }),
-    [theme]
-  );
+  const buttonStyles = getButtonStyles(themes[theme]);
 
   return (
     <Pressable
@@ -88,6 +89,7 @@ export function Button({ children }: { children: string }) {
 export function Home() {
   const onLayoutRootView = useFontsLoaded()[1];
   const insets = useSafeAreaInsets();
+  const [theme, setTheme] = useAtom(themeAtom);
 
   return (
     <View
@@ -97,6 +99,10 @@ export function Home() {
       onLayout={onLayoutRootView}>
       <Text style={styles.withFont}>Hello!</Text>
       <Button>I am just a simple button ...</Button>
+      <Pressable
+        onPress={() => setTheme((t) => (t === "sky" ? "amber" : "sky"))}>
+        <Text>Switch theme</Text>
+      </Pressable>
       <StatusBar style="auto" />
     </View>
   );
