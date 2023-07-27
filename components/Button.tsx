@@ -8,10 +8,6 @@ import { type ThemeProps } from "../styles/design-system";
 import { Pressable, Text } from "react-native";
 import { useStyles } from "../hooks/useStyles";
 
-// const getButtonStyles = ;
-
-const a = typeof cva;
-
 export function Button({ children }: { children: string }) {
   const buttonStyles = useStyles((t: ThemeProps) =>
     cva(["px-3", "py-1.5", "rounded-lg", "border", "self-start"], {
