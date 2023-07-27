@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+
 import { twMerge } from "tailwind-merge";
 import {
   SafeAreaProvider,
@@ -9,37 +10,15 @@ import tw from "twrnc";
 
 import useFontsLoaded from "./hooks/useFontsLoaded";
 import init from "./init";
+import { Themes, type ThemeNames } from "./styles/themes";
+
 import { cva } from "class-variance-authority";
 
 import { atom, useAtom } from "jotai";
 import { useCallback } from "react";
+import { ThemeProps } from "./styles/design-system";
 
-const PrimaryColors = ["bg-sky-500", "bg-amber-600"] as const;
-type PrimaryColor = (typeof PrimaryColors)[number];
-
-const PrimaryPressed = ["bg-sky-500/80", "bg-amber-500/80"] as const;
-type PrimaryColorPressed = (typeof PrimaryPressed)[number];
-
-// should add a default as well
-// maybe name it color scheme
-type Theme = {
-  primaryColor: PrimaryColor;
-  primaryColorPressed: PrimaryColorPressed;
-};
-const themes = {
-  sky: {
-    primaryColor: "bg-sky-500",
-    primaryColorPressed: "bg-sky-500/80",
-  },
-  amber: {
-    primaryColor: "bg-amber-600",
-    primaryColorPressed: "bg-amber-500/80",
-  },
-} as const;
-
-type themeNames = keyof typeof themes;
-
-const getButtonStyles = (t: Theme) => {
+const getButtonStyles = (t: ThemeProps) => {
   return cva(["px-3", "py-1.5", "rounded-lg", "border"], {
     variants: {
       intent: {
@@ -54,13 +33,13 @@ const getButtonStyles = (t: Theme) => {
 
 type VarProps = ReturnType<typeof getButtonStyles>;
 
-const themeAtom = atom<themeNames>("sky");
+const themeAtom = atom<ThemeNames>("SKY");
 
 init();
 
 export function Button({ children }: { children: string }) {
   const [theme, setTheme] = useAtom(themeAtom);
-  const buttonStyles = useCallback(getButtonStyles(themes[theme]), [theme]);
+  const buttonStyles = useCallback(getButtonStyles(Themes[theme]), [theme]);
 
   return (
     <Pressable
@@ -100,7 +79,7 @@ export function Home() {
       <Text style={styles.withFont}>Hello!</Text>
       <Button>I am just a simple button ...</Button>
       <Pressable
-        onPress={() => setTheme((t) => (t === "sky" ? "amber" : "sky"))}>
+        onPress={() => setTheme((t) => (t === "SKY" ? "AMBER" : "SKY"))}>
         <Text>Switch theme</Text>
       </Pressable>
       <StatusBar style="auto" />

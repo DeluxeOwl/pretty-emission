@@ -6,7 +6,8 @@
     "start": "expo start --dev-client",
     "android": "expo start  --dev-client --android",
     "ios": "expo start --dev-client --ios",
-    "web": "expo start --dev-client --web"
+    "web": "expo start --dev-client --web",
+    "build-local": "eas build --profile development-simulator --platform ios --local"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",

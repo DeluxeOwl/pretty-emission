@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.nsp.prettyemission"
@@ -31,6 +29,9 @@
       "eas": {
         "projectId": "d92f0439-b1eb-461e-8339-726d3f3ec380"
       }
+    },
+    "experiments": {
+      "tsconfigPaths": true
     }
   }
 }
