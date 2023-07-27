@@ -1,13 +1,17 @@
-import { useThemeName } from "./useTheme";
 import { type ThemeProps } from "../styles/design-system";
-import { Themes } from "../styles/themes";
+import { useTheme } from "./useTheme";
 
-import { cva } from "class-variance-authority";
+import type { cva } from "class-variance-authority";
 import { useCallback } from "react";
 
-type Callback = (t: ThemeProps) => ReturnType<typeof cva>;
+type CvaType<T> = typeof cva<T>;
+type CvaParams<T> = Parameters<CvaType<T>>;
 
-export function useStyles(callback: Callback) {
-  const theme = useThemeName()[0];
-  return useCallback(callback(Themes[theme]), [theme]);
+type ClassValue = CvaParams<any>[0];
+type Cfg<T> = CvaParams<T>[1];
+type Ret<T> = ReturnType<CvaType<T>>;
+
+export function useStyles(callback: (t: ThemeProps) => any) {
+  const theme = useTheme();
+  return useCallback(callback(theme), [theme]);
 }
