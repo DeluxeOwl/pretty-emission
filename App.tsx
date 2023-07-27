@@ -1,74 +1,25 @@
 import { StatusBar } from "expo-status-bar";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-import { twMerge } from "tailwind-merge";
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import tw from "twrnc";
+import tw from "./lib/tailwind";
 
 import useFontsLoaded from "./hooks/useFontsLoaded";
 import init from "./init";
-import { Themes, type ThemeNames } from "./styles/themes";
+import { ThemeNames } from "./styles/themes";
 
-import { cva } from "class-variance-authority";
-
-import { atom, useAtom } from "jotai";
-import { useCallback } from "react";
-import { ThemeProps } from "./styles/design-system";
-
-const getButtonStyles = (t: ThemeProps) => {
-  return cva(["px-3", "py-1.5", "rounded-lg", "border"], {
-    variants: {
-      intent: {
-        primary: ["border-sky-200", t.primaryColor],
-      },
-      intentAction: {
-        primary: [t.primaryColorPressed],
-      },
-    },
-  });
-};
-
-type VarProps = ReturnType<typeof getButtonStyles>;
-
-const themeAtom = atom<ThemeNames>("SKY");
+import { Button } from "./components/Button";
+import { useTheme } from "./hooks/useTheme";
 
 init();
 
-export function Button({ children }: { children: string }) {
-  const [theme, setTheme] = useAtom(themeAtom);
-  const buttonStyles = useCallback(getButtonStyles(Themes[theme]), [theme]);
-
-  return (
-    <Pressable
-      style={({ pressed }) => {
-        return tw.style(
-          twMerge(
-            buttonStyles({
-              intent: "primary",
-              intentAction: pressed ? "primary" : null,
-            })
-          )
-        );
-      }}>
-      {({ pressed }) =>
-        pressed ? (
-          <Text style={{ fontFamily: "SatoshiMedium" }}>
-            {children} but PRESSED
-          </Text>
-        ) : (
-          <Text style={{ fontFamily: "SatoshiMedium" }}>{children}</Text>
-        )
-      }
-    </Pressable>
-  );
-}
 export function Home() {
   const onLayoutRootView = useFontsLoaded()[1];
   const insets = useSafeAreaInsets();
-  const [theme, setTheme] = useAtom(themeAtom);
+  const setTheme = useTheme()[1];
 
   return (
     <View
@@ -76,12 +27,16 @@ export function Home() {
         paddingTop: insets.top,
       })}
       onLayout={onLayoutRootView}>
-      <Text style={styles.withFont}>Hello!</Text>
+      <Text style={tw`text-5xl font-satoshi-bold`}>Hello!</Text>
       <Button>I am just a simple button ...</Button>
-      <Pressable
-        onPress={() => setTheme((t) => (t === "SKY" ? "AMBER" : "SKY"))}>
-        <Text>Switch theme</Text>
-      </Pressable>
+      {ThemeNames.map((tName) => (
+        <Pressable
+          key={tName}
+          style={tw`bg-black px-4 py-1 rounded-lg self-start`}
+          onPress={() => setTheme(tName)}>
+          <Text style={tw`text-white`}>{tName}</Text>
+        </Pressable>
+      ))}
       <StatusBar style="auto" />
     </View>
   );
@@ -100,10 +55,3 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  withFont: {
-    fontSize: 48,
-    fontFamily: "SatoshiBold",
-  },
-});
