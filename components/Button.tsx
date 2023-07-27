@@ -3,15 +3,14 @@ import tw from "../lib/tailwind";
 
 import { cva } from "class-variance-authority";
 
-import { useCallback } from "react";
-import { useTheme } from "../hooks/useTheme";
 import { type ThemeProps } from "../styles/design-system";
-import { Themes } from "../styles/themes";
 
 import { Pressable, Text } from "react-native";
+import { useStyles } from "../hooks/useStyles";
+import { useTheme } from "../hooks/useTheme";
 
 const getButtonStyles = (t: ThemeProps) => {
-  return cva(["px-3", "py-1.5", "rounded-lg", "border"], {
+  return cva(["px-3", "py-1.5", "rounded-lg", "border", "self-start"], {
     variants: {
       intent: {
         primary: ["border-sky-200", t.primaryColor],
@@ -23,11 +22,8 @@ const getButtonStyles = (t: ThemeProps) => {
   });
 };
 
-type VarProps = ReturnType<typeof getButtonStyles>;
-
 export function Button({ children }: { children: string }) {
-  const [theme, setTheme] = useTheme();
-  const buttonStyles = useCallback(getButtonStyles(Themes[theme]), [theme]);
+  const buttonStyles = useStyles(getButtonStyles);
 
   return (
     <Pressable
@@ -42,13 +38,7 @@ export function Button({ children }: { children: string }) {
         );
       }}>
       {({ pressed }) =>
-        pressed ? (
-          <Text style={{ fontFamily: "SatoshiMedium" }}>
-            {children} but PRESSED
-          </Text>
-        ) : (
-          <Text style={{ fontFamily: "SatoshiMedium" }}>{children}</Text>
-        )
+        pressed ? <Text>{children}</Text> : <Text>{children}</Text>
       }
     </Pressable>
   );

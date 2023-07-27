@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 import {
   SafeAreaProvider,
@@ -12,14 +12,14 @@ import init from "./init";
 import { ThemeNames } from "./styles/themes";
 
 import { Button } from "./components/Button";
-import { useTheme } from "./hooks/useTheme";
+import { useThemeName } from "./hooks/useTheme";
 
 init();
 
 export function Home() {
   const onLayoutRootView = useFontsLoaded()[1];
   const insets = useSafeAreaInsets();
-  const setTheme = useTheme()[1];
+  const setThemeName = useThemeName()[1];
 
   return (
     <View
@@ -33,7 +33,7 @@ export function Home() {
         <Pressable
           key={tName}
           style={tw`bg-black px-4 py-1 rounded-lg self-start`}
-          onPress={() => setTheme(tName)}>
+          onPress={() => setThemeName(tName)}>
           <Text style={tw`text-white`}>{tName}</Text>
         </Pressable>
       ))}
