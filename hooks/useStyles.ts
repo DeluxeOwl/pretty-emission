@@ -3,7 +3,9 @@ import { useTheme } from "./useTheme";
 
 import { useCallback } from "react";
 
-export function useStyles(callback: (t: ThemeProps) => any) {
+export function useStyles<A>(
+  callback: (t: ThemeProps) => (...args: A[]) => string
+) {
   const theme = useTheme();
   return useCallback(callback(theme), [theme]);
 }
