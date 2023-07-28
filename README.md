@@ -1,4 +1,7 @@
 ## Local builds for iOS simulator
+
+https://docs.expo.dev/build-reference/infrastructure/
+
 Requires `node 18.17.0` (lts as of this time).
 This is basically your version of the expo go client, which allows you to add native code.
 
@@ -14,14 +17,13 @@ yarn expo install expo-dev-client
 brew install fastlane
 # dep manager for swift/obj-c
 brew install cocoapods- [Local builds for iOS simulator](#local-builds-for-ios-simulator)
-
 ```
 
 Add to `eas.json`:
 ```json
 {
   "build": {
-    "development-simulator": {
+    "development-simulator-ios": {
       "developmentClient": true,
       "distribution": "internal",
       "ios": {
@@ -33,7 +35,7 @@ Add to `eas.json`:
 ```
 
 ```sh
-eas build --profile development-simulator --platform ios --local
+eas build --profile development-simulator-ios --platform ios --local
 
 yarn expo start --dev-client
 ```
@@ -42,12 +44,36 @@ yarn expo start --dev-client
 https://docs.expo.dev/workflow/android-studio-emulator/
 Pretty much followed the docs.
 
-Create a build:
+Install java:
 ```sh
-eas build --profile development-simulator --platform android --local
+# Needs java 11, check server infrastructure
+brew install java11
+sudo ln -sfn /opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
+echo 'export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"' >> ~/.zshrc
 ```
 
+Create a build:
+```sh
+eas build --profile development-device-android --platform android --local
+```
+
+Modified `eas.json`:
+```json
+"development-device-android": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+```
+
+**Note:** do this if you want signing locally https://docs.expo.dev/app-signing/local-credentials/
+I couldn't bother right now
+
 ## Adding libraries
+
+Adding `sharp-cli`:
+```sh
+sudo yarn global add sharp-cli --prefix /usr/local
+```
 
 Tailwind: need `tailwind.config.js` and to add to settings.json
 ```json5

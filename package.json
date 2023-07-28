@@ -7,8 +7,8 @@
     "android": "expo start --dev-client --android",
     "ios": "expo start --dev-client --ios",
     "web": "expo start --dev-client --web",
-    "build-local-ios": "eas build --profile development-simulator --platform ios --local",
-    "build-local-android": "eas build --profile development-simulator --platform android --local"
+    "build-local-ios": "eas build --profile development-simulator-ios --platform ios --local",
+    "build-local-android": "eas build --profile development-device-android --platform android --local"
   },
   "dependencies": {
     "@expo/prebuild-config": "~6.2.4",
