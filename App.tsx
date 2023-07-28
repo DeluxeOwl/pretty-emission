@@ -13,21 +13,24 @@ import { ThemeNames } from "./styles/themes";
 
 import { Button } from "./components/Button";
 import { useThemeName } from "./hooks/useTheme";
+import { useDeviceContext } from "twrnc";
 
 init();
 
 export function Home() {
+  useDeviceContext(tw);
+
   const onLayoutRootView = useFontsLoaded()[1];
   const insets = useSafeAreaInsets();
   const setThemeName = useThemeName()[1];
 
   return (
     <View
-      style={tw.style("flex-1 bg-zinc-100 px-2 gap-2", {
-        paddingTop: insets.top,
-      })}
+      style={tw`flex-1 bg-zinc-200 px-2 gap-2 android:pt-[${
+        insets.top + 8
+      }] ios:pt-[${insets.top}]`}
       onLayout={onLayoutRootView}>
-      <Text style={tw`text-5xl font-satoshi-bold`}>Hello!</Text>
+      <Text style={tw`text-5xl font-satoshi-bold`}>Hello, how are you!</Text>
       <Button>I am just a simple button ...</Button>
       {ThemeNames.map((tName) => (
         <Pressable
