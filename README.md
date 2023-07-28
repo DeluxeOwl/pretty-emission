@@ -70,3 +70,51 @@ No safe area insets value available. Make sure you are rendering `<SafeAreaProvi
   ]
 }
 ```
+
+Added jotai
+
+Modified `tailwind.config.js` to add the fonts:
+```js
+const plugin = require("tailwindcss/plugin");
+
+const fontTypes = [
+  "Black",
+  "BlackItalic",
+  "Bold",
+  "BoldItalic",
+  "Italic",
+  "Light",
+  "LightItalic",
+  "Medium",
+  "MediumItalic",
+  "Regular",
+];
+const fonts = fontTypes.reduce((acc, fontVariant) => {
+  return {
+    ...acc,
+    [`.font-satoshi-${fontVariant.toLowerCase()}`]: {
+      fontFamily: `Satoshi${fontVariant}`,
+    },
+  };
+}, {});
+
+/** @type {import('twrnc').Config} */
+module.exports = {
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities(fonts);
+    }),
+  ],
+};
+
+```
+
+Wrapper `cva`
+```ts
+export function useStyles<A>(
+  callback: (t: ThemeProps) => (...args: A[]) => string
+) {
+  const theme = useTheme();
+  return useCallback(callback(theme), [theme]);
+}
+```
