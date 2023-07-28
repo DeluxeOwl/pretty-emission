@@ -119,7 +119,10 @@ export function useStyles<A>(
 }
 ```
 
+https://blog.expo.dev/expo-sdk-48-ccb8302e231
 Upgrading expo:
 ```sh
-npx expo-cli upgrade 49
+yarn add expo@^49.0.0
+npx expo install --fix
+npx expo-doctor
 ```
