@@ -38,6 +38,15 @@ eas build --profile development-simulator --platform ios --local
 yarn expo start --dev-client
 ```
 
+## Adding Android
+https://docs.expo.dev/workflow/android-studio-emulator/
+Pretty much followed the docs.
+
+Create a build:
+```sh
+eas build --profile development-simulator --platform android --local
+```
+
 ## Adding libraries
 
 Tailwind: need `tailwind.config.js` and to add to settings.json

@@ -6,7 +6,7 @@ export const Themes = {
     primaryColorPressed: "bg-sky-500/80",
   },
   AMBER: {
-    primaryColor: "bg-amber-600",
+    primaryColor: "bg-amber-500",
     primaryColorPressed: "bg-amber-500/80",
   },
 } as const satisfies Record<string, ThemeProps>;
