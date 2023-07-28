@@ -118,3 +118,8 @@ export function useStyles<A>(
   return useCallback(callback(theme), [theme]);
 }
 ```
+
+Upgrading expo:
+```sh
+npx expo-cli upgrade 49
+```
