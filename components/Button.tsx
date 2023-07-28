@@ -10,16 +10,26 @@ import { useStyles } from "../hooks/useStyles";
 
 export function Button({ children }: { children: string }) {
   const buttonStyles = useStyles((t: ThemeProps) =>
-    cva(["px-3", "py-1.5", "rounded-lg", "border", "self-start"], {
-      variants: {
-        intent: {
-          primary: ["border-sky-200", t.primaryColor],
+    cva(
+      [
+        "px-3",
+        "py-1.5",
+        "rounded-lg",
+        "border-[0.5px]",
+        "self-start",
+        "shadow-md",
+      ],
+      {
+        variants: {
+          intent: {
+            primary: ["border-zinc-100", t.primaryColor],
+          },
+          intentAction: {
+            primary: [t.primaryColorPressed],
+          },
         },
-        intentAction: {
-          primary: [t.primaryColorPressed],
-        },
-      },
-    })
+      }
+    )
   );
 
   return (
@@ -35,7 +45,11 @@ export function Button({ children }: { children: string }) {
         );
       }}>
       {({ pressed }) =>
-        pressed ? <Text>{children}</Text> : <Text>{children}</Text>
+        pressed ? (
+          <Text style={tw`text-white`}>{children}</Text>
+        ) : (
+          <Text style={tw`text-white`}>{children}</Text>
+        )
       }
     </Pressable>
   );

@@ -26,18 +26,20 @@ export function Home() {
 
   return (
     <View
-      style={tw`flex-1 bg-zinc-200 px-2 gap-2 android:pt-[${
+      style={tw`flex-1 bg-zinc-100 dark:bg-black px-2 gap-2 android:pt-[${
         insets.top + 8
       }] ios:pt-[${insets.top}]`}
       onLayout={onLayoutRootView}>
-      <Text style={tw`text-5xl font-satoshi-bold`}>Hello, how are you!</Text>
+      <Text style={tw`text-5xl font-satoshi-bold dark:text-white`}>
+        Hello, how are you!
+      </Text>
       <Button>I am just a simple button ...</Button>
       {ThemeNames.map((tName) => (
         <Pressable
           key={tName}
-          style={tw`bg-black px-4 py-1 rounded-lg self-start`}
+          style={tw`bg-black dark:bg-white px-4 py-1 rounded-lg self-start`}
           onPress={() => setThemeName(tName)}>
-          <Text style={tw`text-white`}>{tName}</Text>
+          <Text style={tw`dark:text-black text-white`}>{tName}</Text>
         </Pressable>
       ))}
       <StatusBar style="auto" />
