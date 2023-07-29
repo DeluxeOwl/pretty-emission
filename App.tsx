@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, View, StyleSheet } from "react-native";
 
 import {
   SafeAreaProvider,
@@ -26,7 +26,7 @@ export function Home() {
 
   return (
     <View
-      style={tw`flex-1 bg-zinc-100 dark:bg-black px-2 gap-2 android:pt-[${
+      style={tw`flex-1 bg-white dark:bg-black px-2 gap-2 android:pt-[${
         insets.top + 8
       }] ios:pt-[${insets.top}]`}
       onLayout={onLayoutRootView}>
