@@ -1,13 +1,13 @@
 import { atom, useAtom } from "jotai";
 import { ThemeNames, Themes } from "../styles/themes";
 
-const themeAtom = atom<ThemeNames>("SKY");
+const themeNameAtom = atom<ThemeNames>("SKY");
+const themeAtom = atom((get) => Themes[get(themeNameAtom)]);
 
 export function useThemeName() {
-  return useAtom(themeAtom);
+  return useAtom(themeNameAtom);
 }
 
 export function useTheme() {
-  const themeName = useAtom(themeAtom)[0];
-  return Themes[themeName];
+  return useAtom(themeAtom)[0];
 }
