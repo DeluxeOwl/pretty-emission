@@ -1,4 +1,4 @@
-import { type ThemeProps } from "../styles/design-system";
+import { type ThemeProps } from "styles/design-system";
 import { useTheme } from "./useTheme";
 
 import { useCallback } from "react";
