@@ -12,7 +12,7 @@ const buttonStylesAtom = atom((get) => {
     [
       "px-3",
       "py-2",
-      "rounded-lg",
+      "rounded-2xl",
       "border-[0.5px]",
       "w-full",
       "h-12",
@@ -21,10 +21,13 @@ const buttonStylesAtom = atom((get) => {
     {
       variants: {
         intent: {
-          primary: [t.primaryColor],
+          primary: [t.defaultBackgroundWeak, t.defaultBorderWeak],
         },
         intentAction: {
-          primary: [tw.prefixMatch("ios") && t.primaryColorPressed],
+          primary: [
+            tw.prefixMatch("ios") &&
+              t.defaultBackgroundWeakPressed + " " + t.defaultTextStrongPressed,
+          ],
         },
       },
     }
