@@ -1,9 +1,12 @@
 import { cva } from "class-variance-authority";
+import { atom } from "jotai";
+import { styles } from "styles/lib";
+import type { VarProps } from "util/types.ts";
 import { themeAtom } from "./useTheme";
-import { atom, useAtom } from "jotai";
 
 const buttonStylesAtom = atom((get) => {
   const t = get(themeAtom);
+
   return cva(["px-3", "py-2", "rounded-lg", "border-[0.5px]"], {
     variants: {
       intent: {
@@ -16,6 +19,6 @@ const buttonStylesAtom = atom((get) => {
   });
 });
 
-export function useButtonStyles() {
-  return useAtom(buttonStylesAtom)[0];
-}
+export const buttonStyles = styles(buttonStylesAtom);
+
+export type ButtonProps = VarProps<typeof buttonStylesAtom>;
