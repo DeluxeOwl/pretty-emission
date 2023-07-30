@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { Pressable, Text, View, StyleSheet } from "react-native";
+import { View, Text, Pressable } from "react-native";
 
 import {
   SafeAreaProvider,
@@ -11,10 +11,10 @@ import useFontsLoaded from "./hooks/useFontsLoaded";
 import init from "./init";
 import { ThemeNames } from "./styles/themes";
 
+import { Header } from "components/Header";
+import { useDeviceContext } from "twrnc";
 import { Button } from "./components/Button";
 import { useThemeName } from "./hooks/useTheme";
-import { useDeviceContext } from "twrnc";
-import { Header } from "components/Header";
 
 init();
 
@@ -23,25 +23,37 @@ export function Home() {
 
   const onLayoutRootView = useFontsLoaded()[1];
   const insets = useSafeAreaInsets();
-  const setThemeName = useThemeName()[1];
+  const [themeName, setThemeName] = useThemeName();
 
   return (
     <View
-      style={tw`flex-1 bg-white dark:bg-black px-2 gap-2 android:pt-[${
+      style={tw`flex-1 justify-center bg-white dark:bg-black px-3 gap-2 android:pt-[${
         insets.top + 8
-      }] ios:pt-[${insets.top}] overflow-`}
+      }] ios:pt-[${insets.top}]`}
       onLayout={onLayoutRootView}>
       <Header>Hi, how are you?</Header>
+      <Header size="small">Current theme: {themeName}</Header>
 
       <Button>I am just a simple button ...</Button>
-      {ThemeNames.map((tName) => (
-        <Pressable
-          key={tName}
-          style={tw`bg-black dark:bg-white px-4 py-1 rounded-lg self-start`}
-          onPress={() => setThemeName(tName)}>
-          <Text style={tw`dark:text-black text-white`}>{tName}</Text>
-        </Pressable>
-      ))}
+
+      <View
+        style={tw`flex-row gap-2 mt-8 p-4 border-[1px] border-gray-100 dark:border-zinc-700 bg-slate-200 dark:bg-zinc-900 w-full h-32 rounded-3xl `}>
+        {ThemeNames.map((name) => (
+          <Pressable
+            onPress={() => setThemeName(name)}
+            key={name}
+            // rounded is rounded-3xl minus padding
+            // w-24 is h-32 - pt+pb
+            style={tw`bg-${name.toLowerCase()}-100  ${
+              themeName == name
+                ? "border-[3px] dark:border-zinc-50 border-zinc-600"
+                : ""
+            } items-center justify-center w-24 rounded-[16px] h-full`}>
+            <Text>{name}</Text>
+          </Pressable>
+        ))}
+      </View>
+
       <StatusBar style="auto" />
     </View>
   );
