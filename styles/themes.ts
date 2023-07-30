@@ -2,6 +2,8 @@ import type { ThemeProps } from "./design-system";
 
 export const Themes = {
   SKY: {
+    defaultButtonRoundness: "rounded-3xl",
+
     defaultTextStrong: "text-sky-800 dark:text-sky-200",
     defaultBackgroundWeak: "bg-sky-200 dark:bg-sky-900",
     defaultBorderWeak: "border-sky-100 dark:border-sky-800",
@@ -9,6 +11,8 @@ export const Themes = {
     defaultTextStrongPressed: "text-sky-900 dark:text-sky-200",
   },
   AMBER: {
+    defaultButtonRoundness: "rounded-3xl",
+
     defaultTextStrong: "text-amber-800 dark:text-amber-200",
     defaultBackgroundWeak: "bg-amber-200 dark:bg-amber-800",
     defaultBorderWeak: "border-amber-100 dark:border-amber-800",

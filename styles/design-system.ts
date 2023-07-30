@@ -8,6 +8,8 @@
 // https://uicolors.app/browse/tailwind-colors
 // TODO: strong typing?
 export type ThemeProps = {
+  defaultButtonRoundness: "rounded-2xl" | "rounded-3xl";
+
   defaultBackgroundWeak:
     | "bg-sky-200 dark:bg-sky-900"
     | "bg-amber-200 dark:bg-amber-800";

@@ -34,7 +34,7 @@ export function Button({
       <Pressable style={pressableStyle} {...props}>
         {({ pressed }) => (
           <Text
-            style={tw`self-center text-xl ${
+            style={tw`self-center font-satoshi-medium text-xl ${
               pressed ? t.defaultTextStrongPressed : t.defaultTextStrong
             }`}>
             {children}

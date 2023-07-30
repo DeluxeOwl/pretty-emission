@@ -9,7 +9,7 @@ const outerViewStylesAtom = atom((get) => {
   return cva(["overflow-hidden"], {
     variants: {
       variant: {
-        primary: ["rounded-2xl", "shadow-2xl"],
+        primary: [t.defaultButtonRoundness, "shadow-2xl"],
         secondary: [],
       },
     },
@@ -19,33 +19,43 @@ const outerViewStylesAtom = atom((get) => {
 const buttonStylesAtom = atom((get) => {
   const t = get(themeAtom);
 
-  return cva(["px-3", "py-2", "h-12", "justify-center", "self-stretch"], {
-    variants: {
-      variant: {
-        primary: [
-          t.defaultBackgroundWeak,
-          t.defaultBorderWeak,
-          "border-[0.5px]",
-        ],
-        secondary: [],
-      },
-      isPressed: {
-        true: {},
-      },
-    },
-    compoundVariants: [
-      {
-        variant: "primary",
-        isPressed: true,
-        class: [t.defaultBackgroundWeakPressed, t.defaultTextStrongPressed],
-      },
-      {
-        variant: "secondary",
-        isPressed: true,
-        class: ["opacity-70"],
-      },
+  return cva(
+    [
+      "px-3",
+      "py-2",
+      "h-12",
+      "justify-center",
+      t.defaultButtonRoundness,
+      "self-stretch",
     ],
-  });
+    {
+      variants: {
+        variant: {
+          primary: [
+            t.defaultBackgroundWeak,
+            t.defaultBorderWeak,
+            "border-[0.5px]",
+          ],
+          secondary: [],
+        },
+        isPressed: {
+          true: {},
+        },
+      },
+      compoundVariants: [
+        {
+          variant: "primary",
+          isPressed: true,
+          class: [t.defaultBackgroundWeakPressed, t.defaultTextStrongPressed],
+        },
+        {
+          variant: "secondary",
+          isPressed: true,
+          class: ["opacity-70"],
+        },
+      ],
+    }
+  );
 });
 
 export const outerViewStyles = styles(outerViewStylesAtom);

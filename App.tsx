@@ -14,6 +14,7 @@ import { ThemeNames } from "./styles/themes";
 import { Button } from "./components/Button";
 import { useThemeName } from "./hooks/useTheme";
 import { useDeviceContext } from "twrnc";
+import { Header } from "components/Header";
 
 init();
 
@@ -28,11 +29,10 @@ export function Home() {
     <View
       style={tw`flex-1 bg-white dark:bg-black px-2 gap-2 android:pt-[${
         insets.top + 8
-      }] ios:pt-[${insets.top}]`}
+      }] ios:pt-[${insets.top}] overflow-`}
       onLayout={onLayoutRootView}>
-      <Text style={tw`text-5xl font-satoshi-bold dark:text-white`}>
-        Hello, how are you!
-      </Text>
+      <Header>Hi, how are you?</Header>
+
       <Button>I am just a simple button ...</Button>
       {ThemeNames.map((tName) => (
         <Pressable
