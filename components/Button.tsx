@@ -12,7 +12,8 @@ export function Button({ children }: { children: string }) {
 
   return (
     <View style={tw`overflow-hidden rounded-lg shadow-2xl`}>
-      <Pressable style={pressableStyle} android_ripple={tw`text-blue-100`}>
+      {/* If you want to customize the ripple, useTheme or depending on the button props*/}
+      <Pressable style={pressableStyle} android_ripple={{ borderless: true }}>
         <Text style={tw`self-center`}>{children}</Text>
       </Pressable>
     </View>

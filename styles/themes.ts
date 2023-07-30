@@ -9,7 +9,7 @@ export const Themes = {
     primaryColor: "bg-amber-500",
     primaryColorPressed: "bg-amber-500/80",
   },
-} as const satisfies Record<string, ThemeProps>;
+} as const satisfies Record<string, Partial<ThemeProps>>;
 
 export type ThemeNames = keyof typeof Themes;
 
