@@ -16,9 +16,6 @@ const outerViewStylesAtom = atom((get) => {
   });
 });
 
-export const outerViewStyles = styles(outerViewStylesAtom);
-export type OuterViewProps = VarProps<typeof outerViewStylesAtom>;
-
 const buttonStylesAtom = atom((get) => {
   const t = get(themeAtom);
 
@@ -51,6 +48,8 @@ const buttonStylesAtom = atom((get) => {
   });
 });
 
+export const outerViewStyles = styles(outerViewStylesAtom);
 export const buttonStyles = styles(buttonStylesAtom);
 
-export type ButtonProps = VarProps<typeof buttonStylesAtom>;
+export type OuterViewVariantProps = VarProps<typeof outerViewStylesAtom>;
+export type ButtonVariantProps = VarProps<typeof buttonStylesAtom>;

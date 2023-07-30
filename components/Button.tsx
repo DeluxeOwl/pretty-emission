@@ -1,39 +1,45 @@
 import tw from "lib/tailwind";
 
-import { buttonStyles, outerViewStyles } from "hooks/useButtonStyles";
-import { Pressable, Text, View } from "react-native";
+import {
+  ButtonVariantProps,
+  buttonStyles,
+  outerViewStyles,
+} from "hooks/useButtonStyles";
+import { Pressable, PressableProps, Text, View } from "react-native";
 import { useTheme } from "hooks/useTheme";
 
-export function Button({ children }: { children: string }) {
+export interface ButtonProps
+  extends Omit<ButtonVariantProps, "isPressed">,
+    PressableProps {
+  children: React.ReactNode;
+}
+export function Button({
+  variant = "primary",
+  children,
+  ...props
+}: ButtonProps) {
+  const t = useTheme();
+
   const pressableStyle = ({ pressed }: { pressed: boolean }) =>
     buttonStyles({
-      variant: "secondary",
+      variant: variant,
       isPressed: pressed,
     });
-
-  const t = useTheme();
 
   return (
     <View
       style={outerViewStyles({
-        variant: "secondary",
+        variant: variant,
       })}>
-      <Pressable style={pressableStyle}>
-        {({ pressed }) => {
-          console.log(
-            tw`self-center ${
+      <Pressable style={pressableStyle} {...props}>
+        {({ pressed }) => (
+          <Text
+            style={tw`self-center text-xl ${
               pressed ? t.defaultTextStrongPressed : t.defaultTextStrong
-            }`
-          );
-          return (
-            <Text
-              style={tw`self-center text-xl ${
-                pressed ? t.defaultTextStrongPressed : t.defaultTextStrong
-              }`}>
-              {children}
-            </Text>
-          );
-        }}
+            }`}>
+            {children}
+          </Text>
+        )}
       </Pressable>
     </View>
   );
