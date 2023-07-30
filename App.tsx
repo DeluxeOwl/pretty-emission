@@ -51,13 +51,11 @@ export function Home() {
             } flex-row w-24 rounded-[16px] h-full overflow-hidden`}>
             <View
               style={tw`${Themes[name].defaultBackgroundWeak} h-full flex-1`}></View>
-            <View
-              style={tw`${Themes[name].defaultBorderWeak} h-full flex-1`}></View>
+            <View style={tw`bg-${Themes[name].color}-950 h-full flex-1`}></View>
             <View
               style={tw`${Themes[name].defaultBackgroundWeakPressed} h-full flex-1`}></View>
 
-            <View
-              style={tw`${Themes[name].defaultTextStrongPressed} h-full flex-1`}></View>
+            <View style={tw`bg-${Themes[name].color}-200 h-full flex-1`}></View>
           </Pressable>
         ))}
       </View>

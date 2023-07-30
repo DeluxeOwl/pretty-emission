@@ -2,6 +2,8 @@ import type { ThemeProps } from "./design-system";
 
 export const Themes = {
   SKY: {
+    color: "sky",
+
     defaultButtonRoundness: "rounded-3xl",
 
     defaultTextStrong: "text-sky-800 dark:text-sky-200",
@@ -11,6 +13,8 @@ export const Themes = {
     defaultTextStrongPressed: "text-sky-900 dark:text-sky-200",
   },
   AMBER: {
+    color: "amber",
+
     defaultButtonRoundness: "rounded-3xl",
 
     defaultTextStrong: "text-amber-800 dark:text-amber-200",
