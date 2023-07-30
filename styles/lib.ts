@@ -3,6 +3,10 @@ import tw from "lib/tailwind";
 import { twMerge } from "tailwind-merge";
 import type { ClassInput, ExtractTypeFromAtom } from "util/types.ts";
 
+// Maybe tailwind-variants would've helped
+// Otherwise I'd use shopify's restyle
+// avoid tamagui, too much magic IMO but they have some cool ideas
+
 // Requires you to pass an atom that returns `cva`
 // Allows you to use CVA with props with tw.style class inputs
 // Also does twMerge on the CVA result
