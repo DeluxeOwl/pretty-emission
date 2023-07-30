@@ -12,7 +12,7 @@ export function Button({ children }: { children: string }) {
 
   return (
     <View style={tw`overflow-hidden rounded-lg shadow-2xl`}>
-      <Pressable style={pressableStyle} android_ripple={tw`text-red-500`}>
+      <Pressable style={pressableStyle} android_ripple={tw`text-blue-100`}>
         <Text style={tw`self-center`}>{children}</Text>
       </Pressable>
     </View>
