@@ -6,7 +6,7 @@ type ClassInput = Parameters<typeof tw.style>[0];
 type ExtractTypeFromAtom<T> = T extends Atom<infer U> ? U : never;
 
 type VarProps<T> = T extends Atom<infer U extends (...args: any) => any>
-  ? VariantProps<ReturnType<U>>
+  ? VariantProps<U>
   : never;
 
 export type { ClassInput, VarProps, ExtractTypeFromAtom };

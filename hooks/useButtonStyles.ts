@@ -1,7 +1,7 @@
-import { cva } from "class-variance-authority";
+import { VariantProps, cva } from "class-variance-authority";
 import { atom } from "jotai";
 import { styles } from "styles/lib";
-import type { VarProps } from "util/types.ts";
+import type { ExtractTypeFromAtom, VarProps } from "util/types.ts";
 import { themeAtom } from "./useTheme";
 
 const buttonStylesAtom = atom((get) => {
