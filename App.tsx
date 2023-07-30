@@ -9,7 +9,7 @@ import tw from "./lib/tailwind";
 
 import useFontsLoaded from "./hooks/useFontsLoaded";
 import init from "./init";
-import { ThemeNames } from "./styles/themes";
+import { ThemeNames, Themes } from "./styles/themes";
 
 import { Header } from "components/Header";
 import { useDeviceContext } from "twrnc";
@@ -37,19 +37,27 @@ export function Home() {
       <Button>I am just a simple button ...</Button>
 
       <View
-        style={tw`flex-row gap-2 mt-8 p-4 border-[1px] border-gray-100 dark:border-zinc-700 bg-slate-200 dark:bg-zinc-900 w-full h-32 rounded-3xl `}>
+        style={tw`flex-row gap-2 mt-8 p-4 border-[1px] border-gray-100 dark:border-zinc-700 bg-slate-100 dark:bg-zinc-900 w-full h-32 rounded-3xl `}>
         {ThemeNames.map((name) => (
           <Pressable
             onPress={() => setThemeName(name)}
             key={name}
             // rounded is rounded-3xl minus padding
             // w-24 is h-32 - pt+pb
-            style={tw`bg-${name.toLowerCase()}-100  ${
+            style={tw`${
               themeName == name
                 ? "border-[3px] dark:border-zinc-50 border-zinc-600"
                 : ""
-            } items-center justify-center w-24 rounded-[16px] h-full`}>
-            <Text>{name}</Text>
+            } flex-row w-24 rounded-[16px] h-full overflow-hidden`}>
+            <View
+              style={tw`${Themes[name].defaultBackgroundWeak} h-full flex-1`}></View>
+            <View
+              style={tw`${Themes[name].defaultBorderWeak} h-full flex-1`}></View>
+            <View
+              style={tw`${Themes[name].defaultBackgroundWeakPressed} h-full flex-1`}></View>
+
+            <View
+              style={tw`${Themes[name].defaultTextStrongPressed} h-full flex-1`}></View>
           </Pressable>
         ))}
       </View>
