@@ -161,3 +161,5 @@ yarn add expo@^49.0.0
 npx expo install --fix
 npx expo-doctor
 ```
+
+Added shopify skia, https://grahammendick.github.io/navigation/documentation/native/setup.html, yarn add react-native-reanimated
