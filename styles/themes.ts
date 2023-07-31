@@ -1,7 +1,15 @@
 import type { ThemeProps } from "./design-system";
 
+const shared = {
+  appBackgroundColor: "bg-white dark:bg-black",
+  defaultBackground: "bg-neutral-50 dark:bg-neutral-900",
+  defaultBorder: "border-neutral-100 dark:border-neutral-700",
+} as const;
+
 export const Themes = {
   SKY: {
+    ...shared,
+
     color: "sky",
 
     defaultButtonRoundness: "rounded-3xl",
@@ -13,6 +21,8 @@ export const Themes = {
     defaultTextStrongPressed: "text-sky-900 dark:text-sky-200",
   },
   AMBER: {
+    ...shared,
+
     color: "amber",
 
     defaultButtonRoundness: "rounded-3xl",

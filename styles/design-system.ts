@@ -8,9 +8,13 @@
 // https://uicolors.app/browse/tailwind-colors
 // TODO: strong typing?
 export type ThemeProps = {
+  appBackgroundColor: "bg-white dark:bg-black";
+
   color: "sky" | "amber";
 
   defaultButtonRoundness: "rounded-2xl" | "rounded-3xl";
+
+  defaultBackground: "bg-neutral-50 dark:bg-neutral-900";
 
   defaultBackgroundWeak:
     | "bg-sky-200 dark:bg-sky-900"
@@ -25,6 +29,8 @@ export type ThemeProps = {
   defaultTextStrongPressed:
     | "text-sky-900 dark:text-sky-200"
     | "text-amber-900 dark:text-amber-200";
+
+  defaultBorder: "border-neutral-100 dark:border-neutral-700";
 
   defaultBorderWeak:
     | "border-sky-100 dark:border-sky-800"
