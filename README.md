@@ -163,3 +163,4 @@ npx expo-doctor
 ```
 
 Added shopify skia, https://grahammendick.github.io/navigation/documentation/native/setup.html, yarn add react-native-reanimated
+Removed reanimated, had errors
