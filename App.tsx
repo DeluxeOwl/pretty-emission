@@ -15,6 +15,7 @@ import { PalettePicker } from "components/PalettePicker";
 import { useDeviceContext } from "twrnc";
 import { Button } from "./components/Button";
 import { useTheme, useThemeName } from "./hooks/useTheme";
+import { FlashList } from "@shopify/flash-list";
 
 init();
 

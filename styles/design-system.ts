@@ -9,6 +9,7 @@
 // TODO: strong typing?
 export type ThemeProps = {
   appBackgroundColor: "bg-white dark:bg-black";
+  defaultText: "text-neutral-900 dark:text-white";
 
   color: "sky" | "amber";
 

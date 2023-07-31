@@ -4,6 +4,7 @@ const shared = {
   appBackgroundColor: "bg-white dark:bg-black",
   defaultBackground: "bg-neutral-50 dark:bg-neutral-900",
   defaultBorder: "border-neutral-100 dark:border-neutral-700",
+  defaultText: "text-neutral-900 dark:text-white",
 } as const;
 
 export const Themes = {
