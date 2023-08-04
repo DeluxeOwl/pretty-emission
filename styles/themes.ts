@@ -6,7 +6,16 @@
 
 // https://uicolors.app/browse/tailwind-colors
 
-type ColorScheme = "sky" | "amber";
+const ColorSchemeColors = [
+  "sky",
+  "amber",
+  "rose",
+  "indigo",
+  "cyan",
+  "teal",
+] as const;
+
+type ColorScheme = (typeof ColorSchemeColors)[number];
 
 function createTheme(color: ColorScheme) {
   return {
@@ -42,9 +51,14 @@ function createTheme(color: ColorScheme) {
   };
 }
 
+// generates colors from the default color schemes
+const generatedColors = ColorSchemeColors.reduce(
+  (acc, color) => ({ ...acc, [color.toUpperCase()]: createTheme(color) }),
+  {}
+) as Record<Uppercase<ColorScheme>, ReturnType<typeof createTheme>>;
+
 export const Themes = {
-  SKY: createTheme("sky"),
-  AMBER: createTheme("amber"),
+  ...generatedColors,
 } as const satisfies Record<string, ReturnType<typeof createTheme>>;
 
 export type ThemeNames = keyof typeof Themes;
