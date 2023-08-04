@@ -6,6 +6,14 @@
 
 // https://uicolors.app/browse/tailwind-colors
 
+// TODO: refactor this
+type ColorPalette = {
+  primary: string;
+  secondary?: string;
+  tertiary?: string;
+  accent?: string;
+};
+
 const ColorSchemeColors = [
   "sky",
   "amber",
