@@ -16,15 +16,18 @@ type ColorPalette = {
 
 const ColorSchemeColors = [
   "sky",
+  "green",
   "amber",
   "rose",
   "indigo",
   "cyan",
   "teal",
+  "slate",
 ] as const;
 
 type ColorScheme = (typeof ColorSchemeColors)[number];
 
+// TODO: add a color for the grays
 function createTheme(color: ColorScheme) {
   return {
     color: color,
