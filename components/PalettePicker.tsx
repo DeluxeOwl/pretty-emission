@@ -21,7 +21,7 @@ export function PalettePicker() {
           // w-24 is h-32 - pt+pb
           style={tw`${
             themeName == name
-              ? "border-[3px] dark:border-zinc-50 border-zinc-600"
+              ? "border-[3px] dark:border-neutral-50 border-neutral-600"
               : ""
           } flex-row w-24 rounded-[16px] h-full overflow-hidden`}>
           <View style={tw`${Themes[name].backgroundWeak} h-full flex-1`}></View>
