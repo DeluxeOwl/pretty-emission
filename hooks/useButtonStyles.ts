@@ -9,8 +9,9 @@ const outerViewStylesAtom = atom((get) => {
   return cva(["overflow-hidden"], {
     variants: {
       variant: {
-        primary: [t.buttonRoundness, "shadow-2xl"],
-        secondary: [],
+        primary: [],
+        secondary: [t.button.roundness, "shadow-2xl"],
+        tertiary: [],
       },
     },
   });
@@ -25,14 +26,19 @@ const buttonStylesAtom = atom((get) => {
       "py-2",
       "h-12",
       "justify-center",
-      t.buttonRoundness,
+      t.button.roundness,
       "self-stretch",
     ],
     {
       variants: {
         variant: {
-          primary: [t.backgroundWeak, t.borderWeak, "border-[0.5px]"],
-          secondary: [],
+          primary: [],
+          secondary: [
+            t.button.background.secondary.default,
+            t.button.border.secondary,
+            "border-[0.5px]",
+          ],
+          tertiary: [],
         },
         isPressed: {
           true: {},
@@ -40,12 +46,15 @@ const buttonStylesAtom = atom((get) => {
       },
       compoundVariants: [
         {
-          variant: "primary",
+          variant: "secondary",
           isPressed: true,
-          class: [t.backgroundWeakPressed, t.textStrongPressed],
+          class: [
+            t.button.background.secondary.pressed,
+            t.button.text.secondary.pressed,
+          ],
         },
         {
-          variant: "secondary",
+          variant: "tertiary",
           isPressed: true,
           class: ["opacity-70"],
         },

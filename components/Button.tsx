@@ -14,7 +14,7 @@ export interface ButtonProps
   children: React.ReactNode;
 }
 export function Button({
-  variant = "primary",
+  variant = "secondary",
   children,
   ...props
 }: ButtonProps) {
@@ -39,7 +39,9 @@ export function Button({
         {({ pressed }) => (
           <Text
             style={tw`self-center font-satoshi-medium text-xl ${
-              pressed ? t.textStrongPressed : t.textStrong
+              pressed
+                ? t.button.text.secondary.pressed
+                : t.button.text.secondary.default
             }`}>
             {children}
           </Text>

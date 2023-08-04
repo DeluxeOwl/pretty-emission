@@ -144,15 +144,6 @@ module.exports = {
 
 ```
 
-Wrapper `cva`
-```ts
-export function useStyles<A>(
-  callback: (t: ColorScheme) => (...args: A[]) => string
-) {
-  const theme = useTheme();
-  return useCallback(callback(theme), [theme]);
-}
-```
 
 https://blog.expo.dev/expo-sdk-48-ccb8302e231
 Upgrading expo:

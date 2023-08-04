@@ -15,7 +15,6 @@ import { PalettePicker } from "components/PalettePicker";
 import { useDeviceContext } from "twrnc";
 import { Button } from "./components/Button";
 import { useTheme, useThemeName } from "./hooks/useTheme";
-import { FlashList } from "@shopify/flash-list";
 
 init();
 
@@ -30,7 +29,7 @@ export function Home() {
   return (
     <View
       style={tw`flex-1 justify-center ${
-        t.appBackgroundColor
+        t.application.background
       } px-3 gap-2 android:pt-[${insets.top + 8}] ios:pt-[${insets.top}]`}
       onLayout={onLayoutRootView}>
       <Header>Hi, how are you?</Header>

@@ -1,40 +1,51 @@
-import type { ColorScheme } from "./design-system";
+// `[element][sentiment][importance][state]` - inspired by intuit
+// - element: who uses this token (button, card, etc)
+// - sentiment: `success|warning|danger|info|neutral` - what it conveys
+// - importance: how much does it scream for attention: `primary|secondary|tertiary|accent`
+// - state: `selected|hover|active|disabled`
 
-const shared = {
-  appBackgroundColor: "bg-white dark:bg-black",
-  background: "bg-neutral-50 dark:bg-neutral-900",
-  border: "border-neutral-100 dark:border-neutral-700",
-  text: "text-neutral-900 dark:text-white",
-} as const;
+// https://uicolors.app/browse/tailwind-colors
+
+type ColorScheme = "sky" | "amber";
+
+function createTheme(color: ColorScheme) {
+  return {
+    color: color,
+    application: {
+      background: "bg-white dark:bg-black",
+      text: "text-neutral-900 dark:text-white",
+    },
+
+    button: {
+      roundness: "rounded-2xl",
+      border: {
+        secondary: `border-${color}-100 dark:border-${color}-800`,
+      },
+      background: {
+        secondary: {
+          default: `bg-${color}-200 dark:bg-${color}-900`,
+          pressed: `bg-${color}-300 dark:bg-${color}-700`,
+        },
+      },
+      text: {
+        secondary: {
+          default: `text-${color}-800 dark:text-${color}-200`,
+          pressed: `text-${color}-900 dark:text-${color}-200`,
+        },
+      },
+    },
+
+    card: {
+      background: "bg-neutral-50 dark:bg-neutral-900",
+      border: "border-neutral-100 dark:border-neutral-700",
+    },
+  };
+}
 
 export const Themes = {
-  SKY: {
-    ...shared,
-
-    color: "sky",
-
-    buttonRoundness: "rounded-3xl",
-
-    textStrong: "text-sky-800 dark:text-sky-200",
-    backgroundWeak: "bg-sky-200 dark:bg-sky-900",
-    borderWeak: "border-sky-100 dark:border-sky-800",
-    backgroundWeakPressed: "bg-sky-300 dark:bg-sky-700",
-    textStrongPressed: "text-sky-900 dark:text-sky-200",
-  },
-  AMBER: {
-    ...shared,
-
-    color: "amber",
-
-    buttonRoundness: "rounded-3xl",
-
-    textStrong: "text-amber-800 dark:text-amber-200",
-    backgroundWeak: "bg-amber-200 dark:bg-amber-800",
-    borderWeak: "border-amber-100 dark:border-amber-800",
-    backgroundWeakPressed: "bg-amber-300 dark:bg-amber-700",
-    textStrongPressed: "text-amber-900 dark:text-amber-200",
-  },
-} as const satisfies Record<string, ColorScheme>;
+  SKY: createTheme("sky"),
+  AMBER: createTheme("amber"),
+} as const satisfies Record<string, ReturnType<typeof createTheme>>;
 
 export type ThemeNames = keyof typeof Themes;
 

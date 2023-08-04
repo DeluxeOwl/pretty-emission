@@ -12,7 +12,7 @@ export function PalettePicker() {
 
   return (
     <View
-      style={tw`flex-row gap-2 mt-8 p-4 border-[1px] ${t.background} ${t.border} w-full h-32 rounded-3xl `}>
+      style={tw`flex-row gap-2 mt-8 p-4 border-[1px] ${t.card.background} ${t.card.border} w-full h-32 rounded-3xl `}>
       {ThemeNames.map((name) => (
         <Pressable
           onPress={() => setThemeName(name)}
@@ -24,10 +24,11 @@ export function PalettePicker() {
               ? "border-[3px] dark:border-neutral-50 border-neutral-600"
               : ""
           } flex-row w-24 rounded-[16px] h-full overflow-hidden`}>
-          <View style={tw`${Themes[name].backgroundWeak} h-full flex-1`}></View>
+          <View
+            style={tw`${Themes[name].button.background.secondary.default} h-full flex-1`}></View>
           <View style={tw`bg-${Themes[name].color}-950 h-full flex-1`}></View>
           <View
-            style={tw`${Themes[name].backgroundWeakPressed} h-full flex-1`}></View>
+            style={tw`${Themes[name].button.background.secondary.pressed} h-full flex-1`}></View>
 
           <View style={tw`bg-${Themes[name].color}-200 h-full flex-1`}></View>
         </Pressable>
