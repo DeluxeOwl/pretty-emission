@@ -31,7 +31,11 @@ export function Button({
       style={outerViewStyles({
         variant: variant,
       })}>
-      <Pressable style={pressableStyle} {...props}>
+      <Pressable
+        style={pressableStyle}
+        {...props}
+        // android_ripple={{ borderless: true }}
+      >
         {({ pressed }) => (
           <Text
             style={tw`self-center font-satoshi-medium text-xl ${
