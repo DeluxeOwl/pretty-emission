@@ -8,6 +8,7 @@ import {
 import { Pressable, PressableProps, Text, View } from "react-native";
 import { useTheme } from "hooks/useTheme";
 
+// TODO: keys are actually nullable
 export interface ButtonProps
   extends Omit<ButtonVariantProps, "isPressed">,
     PressableProps {
@@ -39,7 +40,7 @@ export function Button({
         {({ pressed }) => (
           <Text
             style={tw`self-center font-satoshi-medium text-xl ${
-              pressed
+              pressed && !!variant
                 ? t.button.text[variant!].pressed
                 : t.button.text[variant!].default
             }`}>

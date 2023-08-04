@@ -42,7 +42,7 @@ function createTheme(color: ColorScheme) {
       background: {
         primary: {
           default: `bg-${color}-500`,
-          pressed: `bg-${color}-500/80`,
+          pressed: `bg-${color}-600`,
         },
         secondary: {
           default: `bg-${color}-200 dark:bg-${color}-900`,
