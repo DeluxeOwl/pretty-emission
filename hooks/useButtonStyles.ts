@@ -6,7 +6,7 @@ import { themeAtom } from "./useTheme";
 
 const outerViewStylesAtom = atom((get) => {
   const t = get(themeAtom);
-  return cva(["overflow-hidden"], {
+  return cva(["overflow-hidden", "bg-transparent"], {
     variants: {
       variant: {
         primary: [],
