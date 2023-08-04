@@ -9,7 +9,7 @@ const outerViewStylesAtom = atom((get) => {
   return cva(["overflow-hidden"], {
     variants: {
       variant: {
-        primary: [t.defaultButtonRoundness, "shadow-2xl"],
+        primary: [t.buttonRoundness, "shadow-2xl"],
         secondary: [],
       },
     },
@@ -25,7 +25,7 @@ const buttonStylesAtom = atom((get) => {
       "py-2",
       "h-12",
       "justify-center",
-      t.defaultButtonRoundness,
+      t.buttonRoundness,
       "self-stretch",
     ],
     {

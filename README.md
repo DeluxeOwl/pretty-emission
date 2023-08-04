@@ -147,7 +147,7 @@ module.exports = {
 Wrapper `cva`
 ```ts
 export function useStyles<A>(
-  callback: (t: ThemeProps) => (...args: A[]) => string
+  callback: (t: ColorScheme) => (...args: A[]) => string
 ) {
   const theme = useTheme();
   return useCallback(callback(theme), [theme]);

@@ -1,4 +1,4 @@
-import type { ThemeProps } from "./design-system";
+import type { ColorScheme } from "./design-system";
 
 const shared = {
   appBackgroundColor: "bg-white dark:bg-black",
@@ -13,7 +13,7 @@ export const Themes = {
 
     color: "sky",
 
-    defaultButtonRoundness: "rounded-3xl",
+    buttonRoundness: "rounded-3xl",
 
     textStrong: "text-sky-800 dark:text-sky-200",
     backgroundWeak: "bg-sky-200 dark:bg-sky-900",
@@ -26,7 +26,7 @@ export const Themes = {
 
     color: "amber",
 
-    defaultButtonRoundness: "rounded-3xl",
+    buttonRoundness: "rounded-3xl",
 
     textStrong: "text-amber-800 dark:text-amber-200",
     backgroundWeak: "bg-amber-200 dark:bg-amber-800",
@@ -34,7 +34,7 @@ export const Themes = {
     backgroundWeakPressed: "bg-amber-300 dark:bg-amber-700",
     textStrongPressed: "text-amber-900 dark:text-amber-200",
   },
-} as const satisfies Record<string, ThemeProps>;
+} as const satisfies Record<string, ColorScheme>;
 
 export type ThemeNames = keyof typeof Themes;
 
