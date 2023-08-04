@@ -1,4 +1,4 @@
-import { Pressable, View } from "react-native";
+import { Pressable, ScrollView, View, Text } from "react-native";
 
 import tw from "lib/tailwind";
 
@@ -12,27 +12,40 @@ export function PalettePicker() {
 
   return (
     <View
-      style={tw`flex-row gap-2 mt-8 p-4 border-[1px] ${t.card.background} ${t.card.border} w-full h-32 rounded-3xl `}>
-      {ThemeNames.map((name) => (
-        <Pressable
-          onPress={() => setThemeName(name)}
-          key={name}
-          // rounded is rounded-3xl minus padding
-          // w-24 is h-32 - pt+pb
-          style={tw`${
-            themeName == name
-              ? "border-[3px] dark:border-neutral-50 border-neutral-600"
-              : ""
-          } flex-row w-24 rounded-[16px] h-full overflow-hidden`}>
-          <View
-            style={tw`${Themes[name].button.background.secondary.default} h-full flex-1`}></View>
-          <View style={tw`bg-${Themes[name].color}-950 h-full flex-1`}></View>
-          <View
-            style={tw`${Themes[name].button.background.secondary.pressed} h-full flex-1`}></View>
+      style={tw`mt-8 p-4 border-[1px] ${t.card.background} ${t.card.border} w-full flex rounded-3xl `}>
+      <ScrollView
+        horizontal={true}
+        contentContainerStyle={tw`flex-row gap-2`}
+        showsHorizontalScrollIndicator={false}>
+        {ThemeNames.map((name) => (
+          <View>
+            <Pressable
+              onPress={() => setThemeName(name)}
+              key={name}
+              // rounded is rounded-3xl minus padding
+              // w-24 is h-32 - pt+pb
+              style={tw`${
+                themeName == name
+                  ? "border-[3px] dark:border-neutral-50 border-neutral-600"
+                  : ""
+              } flex-row w-24 rounded-[16px] h-24 overflow-hidden`}>
+              <View
+                style={tw`${Themes[name].button.background.secondary.default} h-full flex-1`}></View>
+              <View
+                style={tw`bg-${Themes[name].color}-950 h-full flex-1`}></View>
+              <View
+                style={tw`${Themes[name].button.background.secondary.pressed} h-full flex-1`}></View>
 
-          <View style={tw`bg-${Themes[name].color}-200 h-full flex-1`}></View>
-        </Pressable>
-      ))}
+              <View
+                style={tw`bg-${Themes[name].color}-200 h-full flex-1`}></View>
+            </Pressable>
+            <Text
+              style={tw`${Themes[name].button.text.secondary.default} mt-1 self-center font-satoshi-bold`}>
+              {name.toUpperCase()}
+            </Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }

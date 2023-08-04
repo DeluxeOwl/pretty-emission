@@ -33,7 +33,6 @@ export function Home() {
       } px-3 gap-2 android:pt-[${insets.top + 8}] ios:pt-[${insets.top}]`}
       onLayout={onLayoutRootView}>
       <Header>Hi, how are you?</Header>
-      <Header size="small">Current theme: {themeName}</Header>
 
       <Button>I am just a simple button ...</Button>
       <PalettePicker />
