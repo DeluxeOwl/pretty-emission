@@ -31,11 +31,7 @@ const buttonStylesAtom = atom((get) => {
     {
       variants: {
         variant: {
-          primary: [
-            t.defaultBackgroundWeak,
-            t.defaultBorderWeak,
-            "border-[0.5px]",
-          ],
+          primary: [t.backgroundWeak, t.borderWeak, "border-[0.5px]"],
           secondary: [],
         },
         isPressed: {
@@ -46,7 +42,7 @@ const buttonStylesAtom = atom((get) => {
         {
           variant: "primary",
           isPressed: true,
-          class: [t.defaultBackgroundWeakPressed, t.defaultTextStrongPressed],
+          class: [t.backgroundWeakPressed, t.textStrongPressed],
         },
         {
           variant: "secondary",

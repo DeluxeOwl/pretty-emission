@@ -9,31 +9,31 @@
 // TODO: strong typing?
 export type ThemeProps = {
   appBackgroundColor: "bg-white dark:bg-black";
-  defaultText: "text-neutral-900 dark:text-white";
+  text: "text-neutral-900 dark:text-white";
 
   color: "sky" | "amber";
 
   defaultButtonRoundness: "rounded-2xl" | "rounded-3xl";
 
-  defaultBackground: "bg-neutral-50 dark:bg-neutral-900";
+  background: "bg-neutral-50 dark:bg-neutral-900";
 
-  defaultBackgroundWeak:
+  backgroundWeak:
     | "bg-sky-200 dark:bg-sky-900"
     | "bg-amber-200 dark:bg-amber-800";
-  defaultBackgroundWeakPressed:
+  backgroundWeakPressed:
     | "bg-sky-300 dark:bg-sky-700"
     | "bg-amber-300 dark:bg-amber-700";
 
-  defaultTextStrong:
+  textStrong:
     | "text-sky-800 dark:text-sky-200"
     | "text-amber-800 dark:text-amber-200";
-  defaultTextStrongPressed:
+  textStrongPressed:
     | "text-sky-900 dark:text-sky-200"
     | "text-amber-900 dark:text-amber-200";
 
-  defaultBorder: "border-neutral-100 dark:border-neutral-700";
+  border: "border-neutral-100 dark:border-neutral-700";
 
-  defaultBorderWeak:
+  borderWeak:
     | "border-sky-100 dark:border-sky-800"
     | "border-amber-100 dark:border-amber-800";
 };

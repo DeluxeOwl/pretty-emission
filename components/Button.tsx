@@ -39,7 +39,7 @@ export function Button({
         {({ pressed }) => (
           <Text
             style={tw`self-center font-satoshi-medium text-xl ${
-              pressed ? t.defaultTextStrongPressed : t.defaultTextStrong
+              pressed ? t.textStrongPressed : t.textStrong
             }`}>
             {children}
           </Text>
