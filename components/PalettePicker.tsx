@@ -18,7 +18,7 @@ export function PalettePicker() {
         contentContainerStyle={tw`flex-row gap-2`}
         showsHorizontalScrollIndicator={false}>
         {ThemeNames.map((name) => (
-          <View>
+          <View key={name}>
             <Pressable
               onPress={() => setThemeName(name)}
               key={name}

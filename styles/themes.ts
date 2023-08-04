@@ -35,17 +35,27 @@ function createTheme(color: ColorScheme) {
 
     button: {
       roundness: "rounded-2xl",
-      border: {
-        secondary: `border-${color}-100 dark:border-${color}-800`,
-      },
+
       background: {
+        primary: {
+          default: `bg-${color}-500`,
+          pressed: `bg-${color}-500/80`,
+        },
         secondary: {
           default: `bg-${color}-200 dark:bg-${color}-900`,
           pressed: `bg-${color}-300 dark:bg-${color}-700`,
         },
       },
       text: {
+        primary: {
+          default: `text-${color}-50`,
+          pressed: `text-${color}-50`,
+        },
         secondary: {
+          default: `text-${color}-800 dark:text-${color}-200`,
+          pressed: `text-${color}-900 dark:text-${color}-200`,
+        },
+        tertiary: {
           default: `text-${color}-800 dark:text-${color}-200`,
           pressed: `text-${color}-900 dark:text-${color}-200`,
         },

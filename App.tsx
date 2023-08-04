@@ -34,7 +34,9 @@ export function Home() {
       onLayout={onLayoutRootView}>
       <Header>Hi, how are you?</Header>
 
-      <Button>I am just a simple button ...</Button>
+      <Button variant="primary">Primary button</Button>
+      <Button variant="secondary">Secondary button</Button>
+      <Button variant="tertiary">Tertiary button</Button>
       <PalettePicker />
 
       <StatusBar style="auto" />
