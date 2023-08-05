@@ -153,6 +153,8 @@ npx expo install --fix
 npx expo-doctor
 ```
 
-Added shopify skia, https://grahammendick.github.io/navigation/documentation/native/setup.html, npx expo install react-native-reanimated
+Added shopify skia, 
+```sh
+npx expo install react-native-reanimated
 npx expo start --clear
-TODO: this navigation uses native component I think, and I don't think you can customize them
+```

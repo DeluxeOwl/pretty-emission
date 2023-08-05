@@ -4904,21 +4904,6 @@ nanoid@^3.3.6:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.6.tgz#443380c856d6e9f9824267d960b4236ad583ea4c"
   integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
 
-navigation-react-native@^9.4.1:
-  version "9.4.1"
-  resolved "https://registry.yarnpkg.com/navigation-react-native/-/navigation-react-native-9.4.1.tgz#849aa95fcd088cbff27a092be68b3acd90e76900"
-  integrity sha512-OY7PJroTb/t3RQ+wA1CeXm1v9GzRjFLnUTJams5CSTnrxVdcNDvSNJY9RwHaLLvPwaBbHhkG+TT8atn1O6ElfA==
-
-navigation-react@^4.5.1:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/navigation-react/-/navigation-react-4.5.1.tgz#47adb8ba220f0701736328b359f347a619f2fc6c"
-  integrity sha512-s8FUkLATlr2JcXiyOR9DUQlIAZNyqX3oW0m2u6VCLxmSNSUHUCqueSsULtRTS2FoBAYqN81tZzLMsSw0sBQeDg==
-
-navigation@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/navigation/-/navigation-6.2.0.tgz#9dee79f82e1ab603fa2d9bdd5465e42441fcbf6e"
-  integrity sha512-PcAsKXzTJ4WSLEz2AWHeIv+R9tvagN7qdMaGO8mY0SuPaY11q5HLBbpYQi6+kwljbmRKHju0gxRMwNf17e1zDg==
-
 ncp@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
