@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@expo/prebuild-config": "~6.2.4",
+    "@react-native-async-storage/async-storage": "1.18.2",
     "@shopify/flash-list": "1.4.3",
     "@shopify/react-native-skia": "^0.1.197",
     "class-variance-authority": "^0.7.0",
