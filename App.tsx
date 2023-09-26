@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DetailsScreen from "screens/DetailsScreen";
 import ProfileScreen from "screens/ProfileScreen";
+import { useTheme } from "hooks/useTheme";
 
 init();
 
@@ -15,6 +16,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const fontsLoaded = useFontsLoaded()[0];
+  const t = useTheme();
 
   if (!fontsLoaded) {
     return null;
@@ -25,8 +27,9 @@ export default function App() {
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
+          // headerTransparent: true,
           headerStyle: {
-            backgroundColor: "#f4511e",
+            backgroundColor: t.primaryAsHex as string,
           },
           headerTintColor: "#fff",
           headerTitleStyle: {

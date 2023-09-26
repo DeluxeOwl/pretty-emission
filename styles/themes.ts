@@ -4,6 +4,8 @@
 // - importance: how much does it scream for attention: `primary|secondary|tertiary|accent`
 // - state: `selected|hover|active|disabled`
 
+import tw from "lib/tailwind";
+
 // https://uicolors.app/browse/tailwind-colors
 
 // TODO: refactor this
@@ -31,6 +33,9 @@ type ColorScheme = (typeof ColorSchemeColors)[number];
 function createTheme(color: ColorScheme) {
   return {
     color: color,
+
+    primaryAsHex: tw.style(`bg-${color}-500`).backgroundColor,
+
     application: {
       background: "bg-white dark:bg-black",
       text: "text-neutral-900 dark:text-white",
