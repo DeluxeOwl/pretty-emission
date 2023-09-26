@@ -22,10 +22,11 @@ export default function Home() {
 
   return (
     <View
-      style={tw`flex-1 justify-center ${
+      style={tw`flex-1 justify-start ${
         t.application.background
       } px-3 gap-2 android:pt-[${insets.top + 8}] ios:pt-[${insets.top}]`}
-      onLayout={onLayoutRootView}>
+      onLayout={onLayoutRootView}
+    >
       <Header>Hi, how are you?</Header>
 
       <Button>Primary button</Button>
