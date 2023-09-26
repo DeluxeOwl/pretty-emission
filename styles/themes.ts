@@ -66,8 +66,8 @@ function createTheme(color: ColorScheme) {
     },
 
     card: {
-      background: "bg-neutral-50 dark:bg-neutral-900",
-      border: "border-neutral-100 dark:border-neutral-700",
+      background: "bg-neutral-100 dark:bg-neutral-900",
+      border: "border-neutral-200 dark:border-neutral-700",
     },
   };
 }
