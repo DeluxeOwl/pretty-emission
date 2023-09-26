@@ -45,6 +45,16 @@ export default function DetailsScreen({ route, navigation }: any) {
         >
           I can also update my own params
         </Button>
+        <Button
+          variant="tertiary"
+          onPress={() =>
+            navigation.setOptions({
+              title: "Updated!",
+            })
+          }
+        >
+          And route options
+        </Button>
       </View>
     </View>
   );

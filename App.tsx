@@ -32,6 +32,11 @@ export default function App() {
           component={DetailsScreen}
           // Can have initial params
           initialParams={{ id: 42 }}
+          // react navigation calls the function with { navigation, route }
+          options={({ route }) => ({
+            // @ts-ignore
+            title: `Details ${route.params.id}`,
+          })}
         />
       </Stack.Navigator>
     </NavigationContainer>
