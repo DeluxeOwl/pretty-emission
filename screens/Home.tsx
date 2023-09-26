@@ -1,32 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
-
-import tw from "lib/tailwind";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-
-import useFontsLoaded from "hooks/useFontsLoaded";
 
 import { Button } from "components/Button";
 import { Header } from "components/Header";
 import { PalettePicker } from "components/PalettePicker";
-import { useTheme } from "hooks/useTheme";
-import { useDeviceContext } from "twrnc";
+import Layout from "screens/Layout";
+import { useColorScheme } from "react-native";
 
 export default function Home({ navigation }: any) {
-  useDeviceContext(tw);
-
-  const onLayoutRootView = useFontsLoaded()[1];
-  const insets = useSafeAreaInsets();
-
-  const t = useTheme();
-
+  useColorScheme();
   return (
-    <View
-      style={tw`flex-1 justify-start ${
-        t.application.background
-      } px-3 gap-2 android:pt-[${insets.top + 8}] ios:pt-[${insets.top}]`}
-      onLayout={onLayoutRootView}
-    >
+    <Layout>
       <Header>Hi, how are you?</Header>
 
       <Button>Primary button</Button>
@@ -45,7 +28,8 @@ export default function Home({ navigation }: any) {
         Navigate to details
       </Button>
       <Button onPress={() => navigation.navigate("Profile")}>Profile</Button>
+
       <StatusBar style="auto" />
-    </View>
+    </Layout>
   );
 }

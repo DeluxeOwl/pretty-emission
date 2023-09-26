@@ -9,6 +9,7 @@ Make sure the iOS simulator is configured: https://docs.expo.dev/workflow/ios-si
 
 Install [expo-dev-client](https://docs.expo.dev/develop/development-builds/installation/).
 Could also use `prebuild`
+
 ```sh
 yarn global add eas-cli
 yarn expo install expo-dev-client
@@ -20,6 +21,7 @@ brew install cocoapods- [Local builds for iOS simulator](#local-builds-for-ios-s
 ```
 
 Add to `eas.json`:
+
 ```json
 {
   "build": {
@@ -41,10 +43,12 @@ yarn expo start --dev-client
 ```
 
 ## Adding Android
+
 https://docs.expo.dev/workflow/android-studio-emulator/
 Pretty much followed the docs.
 
 Install java:
+
 ```sh
 # Needs java 11, check server infrastructure
 brew install java11
@@ -53,11 +57,13 @@ echo 'export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"' >> ~/.zshrc
 ```
 
 Create a build:
+
 ```sh
 eas build --profile development-device-android --platform android --local
 ```
 
 Modified `eas.json`:
+
 ```json
 "development-device-android": {
       "developmentClient": true,
@@ -71,11 +77,13 @@ I couldn't bother right now
 ## Adding libraries
 
 Adding `sharp-cli`:
+
 ```sh
 sudo yarn global add sharp-cli --prefix /usr/local
 ```
 
 Tailwind: need `tailwind.config.js` and to add to settings.json
+
 ```json5
 "tailwindCSS.classAttributes": [
     // ...
@@ -91,6 +99,7 @@ Tailwind: need `tailwind.config.js` and to add to settings.json
 Apparently you need to rebuild after installing some things
 Make sure **to use the yarn/npx expo** to install and also use the hook in a separate component.
 Avoided these errors:
+
 ```
 requireNativeComponent: "RNCSafeAreaProvider" was not found in the UIManager
 
@@ -98,17 +107,19 @@ No safe area insets value available. Make sure you are rendering `<SafeAreaProvi
 ```
 
 `yarn expo install class-variance-authority`
+
 ```json5
 {
   "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ]
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+  ],
 }
 ```
 
 Added jotai
 
 Modified `tailwind.config.js` to add the fonts:
+
 ```js
 const plugin = require("tailwindcss/plugin");
 
@@ -141,20 +152,22 @@ module.exports = {
     }),
   ],
 };
-
 ```
-
 
 https://blog.expo.dev/expo-sdk-48-ccb8302e231
 Upgrading expo:
+
 ```sh
 yarn add expo@^49.0.0
 npx expo install --fix
 npx expo-doctor
 ```
 
-Added shopify skia, 
+Added shopify skia,
+
 ```sh
 npx expo install react-native-reanimated
 npx expo start --clear
 ```
+
+Some weird thing going on with the dark mode switch, added `useColorScheme()` at the top of each screen.

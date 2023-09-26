@@ -1,18 +1,21 @@
 import { Button } from "components/Button";
 import { Header } from "components/Header";
+import StyledText from "components/StyledText";
 import tw from "lib/tailwind";
-import { View, Text } from "react-native";
+import { View, Text, useColorScheme } from "react-native";
+import Layout from "screens/Layout";
 
 export default function DetailsScreen({ route, navigation }: any) {
+  useColorScheme();
   // undefined otherwise it throws
   const params = route.params ?? {};
 
   return (
-    <View style={tw`flex-1 px-3`}>
+    <Layout>
       <View style={tw`flex-1 gap-2 justify-center `}>
         <Header>Here are the params for details:</Header>
-        <Text>id: {params.id}</Text>
-        <Text>otherParam: {params.otherParam}</Text>
+        <StyledText>id: {params.id}</StyledText>
+        <StyledText>otherParam: {params.otherParam}</StyledText>
       </View>
       <View style={tw`flex-1 gap-2`}>
         <Button
@@ -56,6 +59,6 @@ export default function DetailsScreen({ route, navigation }: any) {
           And route options
         </Button>
       </View>
-    </View>
+    </Layout>
   );
 }
