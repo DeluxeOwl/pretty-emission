@@ -44,7 +44,7 @@ export default function Home({ navigation }: any) {
       >
         Navigate to details
       </Button>
-
+      <Button onPress={() => navigation.navigate("Profile")}>Profile</Button>
       <StatusBar style="auto" />
     </View>
   );
