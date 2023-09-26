@@ -12,11 +12,13 @@ export function PalettePicker() {
 
   return (
     <View
-      style={tw`mt-8 p-4 border-[1px] ${t.card.background} ${t.card.border} w-full flex rounded-3xl `}>
+      style={tw`mt-8 p-4 border-[1px] ${t.card.background} ${t.card.border} w-full flex rounded-3xl `}
+    >
       <ScrollView
         horizontal={true}
         contentContainerStyle={tw`flex-row gap-2`}
-        showsHorizontalScrollIndicator={false}>
+        showsHorizontalScrollIndicator={false}
+      >
         {ThemeNames.map((name) => (
           <View key={name}>
             <Pressable
@@ -28,19 +30,21 @@ export function PalettePicker() {
                 themeName == name
                   ? "border-[3px] dark:border-neutral-50 border-neutral-600"
                   : ""
-              } flex-row w-24 rounded-[16px] h-24 overflow-hidden`}>
+              } flex-row w-24 rounded-[16px] h-24 overflow-hidden`}
+            >
               <View
-                style={tw`${Themes[name].button.background.secondary.default} h-full flex-1`}></View>
+                style={tw`${Themes[name].button.background.primary.default} h-full flex-1`}
+              />
+              <View style={tw`bg-${Themes[name].color}-950 h-full flex-1`} />
               <View
-                style={tw`bg-${Themes[name].color}-950 h-full flex-1`}></View>
-              <View
-                style={tw`${Themes[name].button.background.secondary.pressed} h-full flex-1`}></View>
+                style={tw`${Themes[name].button.background.secondary.pressed} h-full flex-1`}
+              />
 
-              <View
-                style={tw`bg-${Themes[name].color}-200 h-full flex-1`}></View>
+              <View style={tw`bg-${Themes[name].color}-300 h-full flex-1`} />
             </Pressable>
             <Text
-              style={tw`${Themes[name].button.text.secondary.default} mt-1 self-center font-satoshi-bold`}>
+              style={tw`${Themes[name].button.text.secondary.default} mt-1 self-center font-satoshi-bold`}
+            >
               {name.toUpperCase()}
             </Text>
           </View>

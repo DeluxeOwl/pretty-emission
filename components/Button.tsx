@@ -31,7 +31,8 @@ export function Button({
     <View
       style={outerViewStyles({
         variant: variant,
-      })}>
+      })}
+    >
       <Pressable
         style={pressableStyle}
         {...props}
@@ -43,7 +44,8 @@ export function Button({
               pressed && !!variant
                 ? t.button.text[variant!].pressed
                 : t.button.text[variant!].default
-            }`}>
+            }`}
+          >
             {children}
           </Text>
         )}

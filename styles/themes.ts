@@ -45,8 +45,8 @@ function createTheme(color: ColorScheme) {
           pressed: `bg-${color}-600`,
         },
         secondary: {
-          default: `bg-${color}-200 dark:bg-${color}-900`,
-          pressed: `bg-${color}-300 dark:bg-${color}-700`,
+          default: `border-${color}-300 dark:border-${color}-800 border-2`,
+          pressed: `bg-${color}-200 dark:bg-${color}-700`,
         },
       },
       text: {
@@ -59,8 +59,8 @@ function createTheme(color: ColorScheme) {
           pressed: `text-${color}-900 dark:text-${color}-200`,
         },
         tertiary: {
-          default: `text-${color}-800 dark:text-${color}-200`,
-          pressed: `text-${color}-900 dark:text-${color}-200`,
+          default: `text-${color}-800 dark:text-${color}-200 underline`,
+          pressed: `text-${color}-900 dark:text-${color}-200 underline`,
         },
       },
     },
