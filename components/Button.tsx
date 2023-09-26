@@ -27,8 +27,6 @@ export function Button({
       isPressed: pressed,
     });
 
-  console.log("render");
-
   return (
     <View
       style={outerViewStyles({
