@@ -27,7 +27,12 @@ export default function App() {
           component={Home}
           options={{ title: "Overview" }}
         />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen
+          name="Details"
+          component={DetailsScreen}
+          // Can have initial params
+          initialParams={{ id: 42 }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
