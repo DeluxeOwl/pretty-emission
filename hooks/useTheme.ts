@@ -1,8 +1,10 @@
 import { atom, useAtom, useAtomValue } from "jotai";
-import { atomWithStorage } from "jotai/utils";
+import { atomWithStorage, createJSONStorage } from "jotai/utils";
 import { ThemeNames, Themes } from "../styles/themes";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-// TODO: save theme in storage
+const storage = createJSONStorage(() => AsyncStorage);
+
 const themeNameAtom = atomWithStorage<ThemeNames>("theme", "SKY");
 export const themeAtom = atom((get) => Themes[get(themeNameAtom)]);
 

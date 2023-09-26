@@ -27,6 +27,8 @@ export function Button({
       isPressed: pressed,
     });
 
+  console.log("render");
+
   return (
     <View
       style={outerViewStyles({
@@ -36,7 +38,18 @@ export function Button({
       <Pressable
         style={pressableStyle}
         {...props}
-        // android_ripple={{ borderless: true }}
+        // Slight color hue when not tertiary derived from the main color
+        android_ripple={
+          variant !== "tertiary"
+            ? {
+                borderless: true,
+                color:
+                  tw`${t.button.background.primary.default}/10 dark:${t.button.background.primary.default}/90`[
+                    "backgroundColor"
+                  ] as string,
+              }
+            : null
+        }
       >
         {({ pressed }) => (
           <Text
