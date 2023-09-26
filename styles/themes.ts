@@ -45,8 +45,8 @@ function createTheme(color: ColorScheme) {
           pressed: `bg-${color}-600`,
         },
         secondary: {
-          default: `border-${color}-400 dark:border-${color}-800 border-2`,
-          pressed: `bg-${color}-200 dark:bg-${color}-700`,
+          default: `border-${color}-400/80 dark:border-${color}-800 border-2`,
+          pressed: `bg-${color}-100 dark:bg-${color}-700`,
         },
       },
       text: {
