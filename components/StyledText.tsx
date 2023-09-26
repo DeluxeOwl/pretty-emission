@@ -7,5 +7,9 @@ interface StyledTextProps extends TextProps {}
 
 export default function StyledText({ children, ...props }: StyledTextProps) {
   const t = useTheme();
-  return <Text style={tw`${t.application.text}`}>{children}</Text>;
+  return (
+    <Text {...props} style={tw`${t.application.text}`}>
+      {children}
+    </Text>
+  );
 }

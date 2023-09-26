@@ -9,7 +9,7 @@ const outerViewStylesAtom = atom((get) => {
   return cva(["overflow-hidden", "bg-transparent"], {
     variants: {
       variant: {
-        primary: [t.button.roundness, "shadow-xl"],
+        primary: [t.button.roundness, "shadow-lg"],
         secondary: [t.button.roundness],
         tertiary: [],
       },

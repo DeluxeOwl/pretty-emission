@@ -9,6 +9,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DetailsScreen from "screens/DetailsScreen";
 import ProfileScreen from "screens/ProfileScreen";
 import { useTheme } from "hooks/useTheme";
+import { Button } from "components/Button";
+import { useColorScheme } from "react-native";
+import tw from "lib/tailwind";
+import StyledText from "components/StyledText";
 
 init();
 
@@ -17,6 +21,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   const fontsLoaded = useFontsLoaded()[0];
   const t = useTheme();
+  useColorScheme();
 
   if (!fontsLoaded) {
     return null;
@@ -29,7 +34,7 @@ export default function App() {
         screenOptions={{
           // headerTransparent: true,
           headerStyle: {
-            backgroundColor: t.primaryAsHex as string,
+            backgroundColor: tw.style(`text-${t.color}-600`).color as string,
           },
           headerTintColor: "#fff",
           headerTitleStyle: {
@@ -53,7 +58,21 @@ export default function App() {
             title: `Details ${route.params.id}`,
           })}
         />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          // You can pass a component
+          options={{
+            headerTitle: () => (
+              <StyledText
+                onPress={() => console.warn("Pressed button in title")}
+              >
+                Profile 🫠
+              </StyledText>
+            ),
+            headerRight: () => <StyledText>✨</StyledText>,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

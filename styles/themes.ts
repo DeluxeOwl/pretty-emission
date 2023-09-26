@@ -34,8 +34,6 @@ function createTheme(color: ColorScheme) {
   return {
     color: color,
 
-    primaryAsHex: tw.style(`bg-${color}-500`).backgroundColor,
-
     application: {
       background: "bg-white dark:bg-black",
       text: "text-neutral-900 dark:text-white",
