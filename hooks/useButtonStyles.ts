@@ -10,7 +10,7 @@ const outerViewStylesAtom = atom((get) => {
     variants: {
       variant: {
         primary: [t.button.roundness, "shadow-2xl"],
-        secondary: [t.button.roundness, "shadow-xl"],
+        secondary: [t.button.roundness, "shadow-xl bg-transparent"],
         tertiary: [],
       },
     },
