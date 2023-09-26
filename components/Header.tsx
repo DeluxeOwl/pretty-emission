@@ -11,7 +11,8 @@ export function Header({ size = "large", children }: HeaderProps) {
     <Text
       style={headerStyles({
         size: size,
-      })}>
+      })}
+    >
       {children}
     </Text>
   );

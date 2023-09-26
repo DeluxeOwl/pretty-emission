@@ -12,7 +12,7 @@ import { PalettePicker } from "components/PalettePicker";
 import { useTheme } from "hooks/useTheme";
 import { useDeviceContext } from "twrnc";
 
-export default function Home() {
+export default function Home({ navigation }: { navigation: any }) {
   useDeviceContext(tw);
 
   const onLayoutRootView = useFontsLoaded()[1];
@@ -33,6 +33,10 @@ export default function Home() {
       <Button variant="secondary">Secondary button</Button>
       <Button variant="tertiary">Tertiary button</Button>
       <PalettePicker />
+
+      <Button onPress={() => navigation.navigate("Details")}>
+        Navigate to details
+      </Button>
 
       <StatusBar style="auto" />
     </View>
