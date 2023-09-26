@@ -6,6 +6,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const storage = createJSONStorage(() => AsyncStorage);
 
 const themeNameAtom = atomWithStorage<ThemeNames>("theme", "SKY");
+
 export const themeAtom = atom((get) => Themes[get(themeNameAtom)]);
 
 export function useThemeName() {
