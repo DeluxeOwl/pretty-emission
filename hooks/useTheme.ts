@@ -1,4 +1,4 @@
-import { atom, useAtom } from "jotai";
+import { atom, useAtom, useAtomValue } from "jotai";
 import { atomWithStorage } from "jotai/utils";
 import { ThemeNames, Themes } from "../styles/themes";
 
@@ -11,5 +11,5 @@ export function useThemeName() {
 }
 
 export function useTheme() {
-  return useAtom(themeAtom)[0];
+  return useAtomValue(themeAtom);
 }
